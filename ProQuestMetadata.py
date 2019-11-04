@@ -1,26 +1,20 @@
 import re
 from datetime import datetime as dt
 
-class DataPoint():
-    
-    def __init__(self, csv, headers):
-        fields = csv.split("\t")
-        _ = {}
-        for i, field in enumerate(fields):
-            _[headers[i]] = field
-        self.data = _
-        # self.source = Source(self.data)
-    
-    def __getitem__(self, item):
-        return(self.data.get(item, None))
-    
-    
 class Source():
 
     def __init__(self, data):
+        if not data: raise RuntimeError("Data needs to not be empty.")
+        
         self.data = data
         
         self._parsed_data, self._title, self._volume, self._issue, self._date, self._page_number = None, None, None, None, None, None
+        
+        self.year, self.month, self.day = None, None, None
+        if self.date is not None:
+            self.month = self.date.month
+            self.year = self.date.year
+            self.day = self.date.day
         
     @property
     def title(self):
