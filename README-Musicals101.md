@@ -86,7 +86,7 @@ df = pd.DataFrame.from_dict(_)
 df.to_csv('musicals101.csv')
 ```
 
-**The resulting file is available [here](https://github.com/kallewesterling/early-female-impersonators/blob/master/musicals101.csv) for reference.**
+**The resulting file is available [here](https://github.com/kallewesterling/early-female-impersonators/blob/master/data/musicals101.csv) for reference.**
 
 # Entire code
 
